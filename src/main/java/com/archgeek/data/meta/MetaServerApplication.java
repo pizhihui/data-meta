@@ -15,9 +15,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-/**
- * @author xiaojing
- */
+
 @SpringBootApplication
 @EnableDiscoveryClient
 public class MetaServerApplication {
