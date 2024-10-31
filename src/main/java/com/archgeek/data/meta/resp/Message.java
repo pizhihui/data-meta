@@ -71,6 +71,12 @@ public class Message {
         return res;
     }
 
+    public Message setMap(String key, Object value) {
+        Map<String, Object> res = new HashMap<>();
+        res.put(key, value);
+        this.data = res;
+        return this;
+    }
 
     public String getMethod() {
         return method;
@@ -100,6 +106,7 @@ public class Message {
         this.data = data;
         return this;
     }
+
 
     public void setMessage(String message) {
         this.message = message;
