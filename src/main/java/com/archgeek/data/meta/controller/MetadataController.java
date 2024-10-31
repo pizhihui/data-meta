@@ -1,9 +1,8 @@
 package com.archgeek.data.meta.controller;
 
-import com.archgeek.data.meta.resp.CatalogResp;
+import com.archgeek.data.meta.resp.MetaCatalogResp;
 import com.archgeek.data.meta.resp.Message;
 import com.archgeek.data.meta.service.IHologresMetaService;
-import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +23,7 @@ public class MetadataController {
     @RequestMapping(path = "catalogs", method = RequestMethod.GET)
     public Message queryCatalogInfo() {
         try {
-            List<CatalogResp> catalogList = hologresMetaService.getCatalogList();
+            List<MetaCatalogResp> catalogList = hologresMetaService.getCatalogList();
             return Message.ok().setData(catalogList);
         } catch (Exception e) {
             return Message.error("请求 catalog 接口错误", e);

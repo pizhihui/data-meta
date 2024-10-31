@@ -29,7 +29,6 @@ public class MetaServerApplication {
 		@RequestMapping(value = "/api/rest_j/v1/serviceecho/{string}", method = RequestMethod.GET)
 		public String echo(@PathVariable String string) throws IOException, InterruptedException {
 
-
 			HttpClient client = HttpClient.newBuilder()
 					.version(HttpClient.Version.HTTP_1_1)	//可以手动指定客户端的版本，如果不指定，那么默认是Http2
 					.followRedirects(HttpClient.Redirect.NORMAL)	//设置重定向策略

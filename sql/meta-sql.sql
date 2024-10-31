@@ -2,18 +2,16 @@ CREATE DATABASE IF NOT EXISTS `data_meta_db` CHARACTER SET 'utf8';
 
 CREATE TABLE `data_meta_db`.`t_meta_catalog`
 (
-    `catalog_id`      BIGINT(20) UNSIGNED NOT NULL COMMENT 'catalog id',
-    `catalog_name`    VARCHAR(128)        NOT NULL COMMENT 'catalog name',
-    `type`            VARCHAR(64)         NOT NULL COMMENT 'catalog type',
-    `catalog_comment` VARCHAR(256)                 DEFAULT '' COMMENT 'catalog comment',
-    `properties`      MEDIUMTEXT                   DEFAULT NULL COMMENT 'catalog properties',
-    `Fcreate_time`    datetime            NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `Fmodify_time`    timestamp           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    PRIMARY KEY (`catalog_id`)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8mb4
-  COLLATE = utf8mb4_bin COMMENT 'metadata-catalog';
-
+    `f_catalog_id`      BIGINT(20) UNSIGNED NOT NULL COMMENT 'catalog id',
+    `f_catalog_name`    VARCHAR(128)        NOT NULL COMMENT 'catalog name',
+    `f_catalog_comment` VARCHAR(256)                 DEFAULT '' COMMENT 'catalog comment',
+    `f_type`            VARCHAR(64)         NOT NULL COMMENT 'catalog type, RELATIONAL|FILESET|MESSAGE',
+    `f_provider`        VARCHAR(64)         NOT NULL COMMENT 'catalog provider, JDBC_POSTGRESQL|JDBC_MYSQL|JDBC_STARROCKS|MAXCOMPUTE|HIVE',
+    `f_properties`      MEDIUMTEXT                   DEFAULT NULL COMMENT 'catalog properties',
+    `f_create_time`    datetime            NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `f_modify_time`    datetime           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`f_catalog_id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_bin COMMENT 'metadata-catalog';
 
 
 CREATE TABLE `data_meta_db`.`t_meta_schema`
@@ -24,8 +22,8 @@ CREATE TABLE `data_meta_db`.`t_meta_schema`
 
     `catalog_id`     BIGINT(20) UNSIGNED NOT NULL COMMENT 'catalog id',
 
-    `Fcreate_time`   datetime            NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `Fmodify_time`   timestamp           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    `create_time`   datetime            NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `modify_time`   timestamp           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (`schema_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

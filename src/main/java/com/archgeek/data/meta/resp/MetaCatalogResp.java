@@ -9,13 +9,12 @@ import java.util.Map;
  * @date 2024-10-30
  */
 @Data
-public class CatalogResp {
-
+public class MetaCatalogResp {
 
     private String name;
     private String comment;
     private String provider;
     private String type;
-    private Map<String, String> properties;
+    private String properties;
 
 }

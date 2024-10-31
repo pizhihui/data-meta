@@ -1,6 +1,9 @@
 package com.archgeek.data.meta.service;
 
-import com.archgeek.data.meta.resp.CatalogResp;
+import com.archgeek.data.meta.resp.MetaCatalogResp;
+import com.archgeek.data.meta.resp.MetaColumnResp;
+import com.archgeek.data.meta.resp.MetaSchemaResp;
+import com.archgeek.data.meta.resp.MetaTableResp;
 
 import java.util.List;
 
@@ -10,6 +13,11 @@ import java.util.List;
  */
 public interface IHologresMetaService {
 
-    List<CatalogResp> getCatalogList();
+    List<MetaCatalogResp> getCatalogList();
 
+    List<MetaSchemaResp> getSchemaList();
+
+    List<MetaTableResp> getTableList();
+
+    List<MetaColumnResp> getColumnList();
 }
