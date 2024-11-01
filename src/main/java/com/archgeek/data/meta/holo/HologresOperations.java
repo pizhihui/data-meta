@@ -393,8 +393,12 @@ public class HologresOperations {
         String HOLO_ENDPOINT = "hgpostcn-cn-71j3z8fbh03j-cn-beijing.hologres.aliyuncs.com";
         int HOLO_PORT = 80;
         String HOLO_DEFAULT_DB = "smartpipi";
-        String user = System.getenv("HOLO_USER"); // "BASIC$pipi";//System.getenv("HOLO_USER");
-        String password = System.getenv("HOLO_PWD"); // "kk5VBj15POdVNGL7";//System.getenv("HOLO_PWD");
+//        String user = System.getenv("HOLO_USER"); // "BASIC$pipi";//System.getenv("HOLO_USER");
+//        String password = System.getenv("HOLO_PWD"); // "kk5VBj15POdVNGL7";//System.getenv("HOLO_PWD");
+
+        String user = "BASIC$pipi"; // "BASIC$pipi";//System.getenv("HOLO_USER");
+        String password = "kk5VBj15POdVNGL7"; // "kk5VBj15POdVNGL7";//System.getenv("HOLO_PWD");
+
 
         // jdbc:postgresql://hgpostcn-cn-71j3z8fbh03j-cn-beijing.hologres.aliyuncs.com:80/smartpipi
         String url = String.format("jdbc:postgresql://%s:%d/%s?user=%s&password=%s", HOLO_ENDPOINT, HOLO_PORT, HOLO_DEFAULT_DB, user, password);
@@ -410,13 +414,13 @@ public class HologresOperations {
         hologresOperations.loadCatalog("smartpipi");
 
         List<JdbcSchemaBean> schemas = hologresOperations.listSchemas("smartpipi");
-        System.out.println(Arrays.toString(schemas.toArray()));
+        System.out.println("schema======================" + Arrays.toString(schemas.toArray()));
 
-        System.out.println("==========");
+        System.out.println("**************************");
 
         for (JdbcSchemaBean schema : schemas) {
             List<JdbcTableBean> tableBeanList = hologresOperations.listTables(schema.getSchemaName());
-            System.out.println(Arrays.toString(tableBeanList.toArray()));
+            System.out.println("table====================" + Arrays.toString(tableBeanList.toArray()));
 
 
             for (JdbcTableBean jdbcTableBean : tableBeanList) {

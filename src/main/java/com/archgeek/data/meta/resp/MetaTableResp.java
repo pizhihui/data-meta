@@ -8,4 +8,9 @@ import lombok.Data;
  */
 @Data
 public class MetaTableResp {
+
+    private Long id;
+    private String name;
+    private String comment;
+
 }
